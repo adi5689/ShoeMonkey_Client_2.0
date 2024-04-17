@@ -48,12 +48,12 @@ const InvoiceComponent = () => {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-lg font-semibold text-gray-800 font-anta">Shipping Address:</p>
             <p className="text-lg font-medium text-gray-600 font-anta">
-              {address.street}, {address.city}, {address.state}, {address.pincode}
+              {address?.street}, {address?.city}, {address?.state}, {address?.pincode}
             </p>
           </div>
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-lg font-semibold text-gray-800 font-anta">Contact:</p>
-            <p className="text-lg font-medium text-gray-600 font-anta">{address.phoneNumber}</p>
+            <p className="text-lg font-medium text-gray-600 font-anta">{address?.phoneNumber}</p>
           </div>
 
 
@@ -63,7 +63,6 @@ const InvoiceComponent = () => {
 
       <div className="mt-8">
             <p className="text-lg lg:text-3xl font-semibold text-white text-center font-anta">Thank You for Shopping With Us!</p>
-            {/* <p className="text-lg font-medium text-gray-600 font-anta">{address.phoneNumber}</p> */}
           </div>
     </div>
  );
