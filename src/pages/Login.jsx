@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { useLocation, useNavigate } from 'react-router-dom'; // Import useNavigate
-import { loginUser, signupUser } from '../features/user/userSlice'; // Import the actions
+import { useLocation, useNavigate } from 'react-router-dom';
+import { loginUser, signupUser } from '../features/user/userSlice'; 
 import { addToCartAsync, fetchCartDataAsync } from "../features/cart/cartSlice";
+
+
 
 
 const Login = ({redirectTo = '/cart'}) => {
@@ -14,7 +16,7 @@ const Login = ({redirectTo = '/cart'}) => {
  });
 
  const dispatch = useDispatch();
- const navigate = useNavigate(); // Use the useNavigate hook
+ const navigate = useNavigate();
  const location = useLocation();
 
  const changeHandler = (e) => {
@@ -27,6 +29,15 @@ const Login = ({redirectTo = '/cart'}) => {
       if (response.payload.success) {
         localStorage.setItem('token', response.payload.token);
         dispatch(fetchCartDataAsync());
+        toast.success(`Welcome ${response.payload.name}!`, {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
         navigate(redirectTo || '/'); 
       } else {
         alert(response.payload.errors);
@@ -39,6 +50,15 @@ const Login = ({redirectTo = '/cart'}) => {
       console.log("Signup response:", response);
       if (response.payload.success) {
         localStorage.setItem('auth-token', response.payload.token);
+        toast.success(`Welcome ${response.payload.name}!`, {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
         navigate('/'); // Redirect to homepage
       } else {
         alert(response.payload.errors);
