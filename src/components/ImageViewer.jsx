@@ -17,13 +17,13 @@ useEffect(() => {
             key={index}
             src={image}
             alt="productImg"
-            className="max-h-[75px] cursor-pointer"
+            className="max-h-[75px] cursor-pointer ring-1 ring-[#8708FF]"
             onMouseEnter={() => setHoveredImage(image)}
           />
         ))}
       </div>
       <div>
-        <img src={hoveredImage} alt="productImg" className="max-w-[400px]" />
+        <img src={hoveredImage} alt="productImg" className="max-w-[400px] ring-1 ring-[#8708FF]" />
       </div>
     </div>
  );
